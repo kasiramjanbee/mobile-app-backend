@@ -1,18 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-
 const app = express();
-const PORT = process.env.PORT || 10000;
 
 app.use(cors());
 app.use(express.json());
 
-// Health check route
-app.get('/', (req, res) => {
-  res.send('Backend is live and working! 🚀');
-});
-
-// ✅ Your users API route
+// ✅ Users route
 app.get('/users', (req, res) => {
   res.json([
     { id: 1, name: 'Alice' },
@@ -21,6 +14,12 @@ app.get('/users', (req, res) => {
   ]);
 });
 
+// ✅ Root route for sanity check
+app.get('/', (req, res) => {
+  res.send('Backend is live and working! 🚀');
+});
+
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
