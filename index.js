@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.get('/api', (req, res) => {
-  res.send('🚀 API is live!');
+app.get('/', (req, res) => {
+  res.send('Backend is live and working! 🚀');
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+// your other API routes like:
+// app.use('/api', require('./routes/yourRoutes'));
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
