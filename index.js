@@ -5,6 +5,10 @@ const PORT = process.env.PORT || 10000;
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Backend is live 🚀');
+});
+
 app.get('/users', (req, res) => {
   const users = Array.from({ length: 900 }, (_, i) => ({
     id: i + 1,
@@ -13,10 +17,6 @@ app.get('/users', (req, res) => {
   res.json(users);
 });
 
-app.get('/', (req, res) => {
-  res.send('✅ Backend is running!');
-});
-
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
