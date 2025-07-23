@@ -10,12 +10,11 @@ app.get('/', (req, res) => {
   res.send('Backend is live 🚀');
 });
 
-// ✅ Serve users from file
 app.get('/users', (req, res) => {
   fs.readFile('./fake_users_900.json', 'utf8', (err, data) => {
     if (err) {
-      console.error('Error reading users:', err);
-      return res.status(500).json({ error: 'Failed to load users' });
+      console.error('❌ Failed to read users:', err);
+      return res.status(500).json({ error: 'Unable to read user data' });
     }
     const users = JSON.parse(data);
     res.json(users);
